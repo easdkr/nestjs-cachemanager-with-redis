@@ -1,0 +1,15 @@
+version: '3.2'
+
+volumes:
+  redis-persist: {}
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: redis 
+    volumes:
+      - redis-persist:/data
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+
